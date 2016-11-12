@@ -1,0 +1,32 @@
+{{#unless isChecklistLoaded}}
+{{#file-picker fileLoaded="fileLoaded" readAs="readAsText" preview=false}}
+    Drag here or click to use a checklist template file
+{{/file-picker}}
+{{/unless}}
+
+{{#if isChecklistLoaded}}
+    {{#each generatedVisualizations as |viz|}}
+        <div class="group">
+            {{#if (eq viz.type "visualization-title")}}
+                <h3 class={{if viz.pageBreak 'page-break'}}>{{viz.title}}</h3>
+            {{/if}}
+            {{#if (eq viz.type "ordinal-bullet-chart")}}
+                <h5 class={{if viz.pageBreak 'page-break'}}>{{viz.title}}</h5>
+                {{d3-ordinal-bullet-chart data=viz.data}}
+            {{/if}}
+            {{#if (eq viz.type "score-bullet-chart")}}
+                <h5 class={{if viz.pageBreak 'page-break'}}>{{viz.title}}</h5>
+                {{d3-score-bullet-chart data=viz.data}}
+            {{/if}}
+            {{#if (eq viz.type "rating-bullet-chart")}}
+                <h5 class={{if viz.pageBreak 'page-break'}}>{{viz.title}}</h5>
+                {{d3-score-bullet-chart data=viz.data}}
+            {{/if}}
+            {{#each viz.remarks  as |remark|}}
+                <p class="remark">
+                    {{remark}}
+                </p>
+            {{/each}}
+        </div>
+    {{/each}}
+{{/if}}

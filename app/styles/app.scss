@@ -1,0 +1,242 @@
+// Fix for Roboto font path
+$roboto-font-path: '../assets/';
+
+// Materialize styles
+@import "materialize";
+
+body{
+    height:100%
+}
+
+.index{
+    background-color: white;
+    background: white;
+    height:100%
+}
+
+.index header {
+    position: relative;
+    overflow: hidden;
+    height: 650px;
+    background: linear-gradient(#f4fbff, #cfebff 200px);
+}
+.page-new-checklist,.page-edit-checklist{
+    background: linear-gradient(#f4fbff, #cfebff 200px);
+}
+
+.index header h1 {
+    position: relative;
+    width: 630px;
+    margin: 33px auto 53px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.5;
+    color: #4573a5;
+    text-shadow: 0 1px 2px rgba(0,30,50,.15);
+}
+.index h1 {
+    margin-bottom: 22px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.index header [id^=header-curve] {
+    width: 100%;
+    height: 110px;
+}
+
+.index #front-rainbow {
+    animation-delay: .7s;
+}
+.index #front-rainbow {
+    width: 100%;
+    height: 305px;
+}
+
+.index #back-rainbow{
+    width:100%;
+    height: 240px;
+}
+.index #back-rainbow-shadow{
+            bottom: 0px;
+    display: block;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    opacity: .8;
+    width: 100%;
+    height: 240px;
+}
+.index header #back-rainbow,.index header #front-rainbow {
+    //transform: translate(100%,500px);
+    animation: rainbow-slide 1.2s cubic-bezier(.2,1,.2,1) .5s forwards;
+}
+
+.index header #back-rainbow,.index header #front-rainbow {
+    right: 0;
+}
+.index header svg {
+    position: absolute;
+    bottom: 0;
+}
+
+#header-curve-shadow {
+    display: block;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    mix-blend-mode: overlay;
+    opacity: .8;
+}
+#header-curve-shadow {
+    //display: none;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.call-to-action {
+    display: flex;
+    justify-content: center;
+}
+
+.create-new-action{
+    margin-right: 5px;
+}
+
+.edit-one-action{
+    margin-left: 5px;
+}
+
+.new,.edit,.visualize{
+    background: linear-gradient(#f4fbff, #cfebff 200px);
+}
+
+div.file-picker {
+    position: relative;
+    min-height: 100px;
+    font-size: 30px;
+    border: 2px dashed #5e90b3;
+    width: 50%;
+    margin-left: 25%;
+    top: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 100;
+    color:#5e90b3;
+    opacity:0;
+    transition: opacity 1s ease;
+
+    &.active{
+        opacity: 1;
+    }
+}
+
+.checklist-item{
+    opacity:0;
+    transition: opacity 1s ease;
+
+    &.active{
+        opacity: 1;
+    }
+
+    & input[type=text]{
+        //height: inherit;
+        padding: 0px 0px 5px 5px;
+    }
+}
+
+    .header-curve-shadow {
+            width: 100%;
+    height: 110px;
+           display: block;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    mix-blend-mode: overlay;
+    opacity: .8;
+    position: relative;
+   bottom: -115px;
+    }
+
+    .header-curve{
+        width: 100%;
+    height: 420px;
+    position: relative;
+   top: 10px;
+    }
+
+.visualize{
+    & h5{
+            font-weight: 300;
+    }
+
+    & h3{
+        font-family: Roboto;
+        font-weight: 200;
+        border-bottom: 1px solid black;
+    }
+
+    & .group{
+        margin-bottom: 25px;
+    }
+
+    & p.remark {
+        font-weight: 300;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        padding-left:250px;
+    }
+
+    & .bullet { 
+        
+        & .tick{
+            font-size: 12px;  font-family: Roboto;font-weight: 300;
+        }
+        & .marker { stroke: #000; stroke-width: 2px; }
+        & .tick line { stroke: #666; stroke-width: .5px; }
+        & .range.s0 { fill: #eee; }
+        & .range.s1 { fill: #ddd; }
+        & .range.s2 { fill: #ccc; }
+        & .measure.s0 { fill: #245782; }
+        & .measure.s1 { fill: steelblue; }
+        & .title { font-size: 14px;  font-family: Roboto;
+            font-weight: 300;}
+        & .subtitle {  font-size: 13px;  font-family: Roboto;
+            font-weight: 200; }
+    }
+
+
+}
+
+@media print {
+  
+    .visualize{
+
+        @media print {
+            .page-break {page-break-before: always;}
+        }
+
+        & p.remark {
+            font-size: 12px;
+        font-weight: 200;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        padding-left:50px;
+    }
+
+        & h3  { font-size: 18px;  font-family: Roboto;
+            font-weight: 200;}
+
+            & h5 { font-size: 14px;  font-family: Roboto;
+            font-weight: 200;}
+    & svg{
+        //width:500px;
+         object-fit: contain;
+            transform:scale(0.7);
+            transform-origin: left;
+    }
+
+    }
+}
+

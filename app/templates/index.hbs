@@ -1,0 +1,66 @@
+{{#index-wrapper}}
+<header class="nav-animation-element">
+    
+<svg viewBox="0 0 1031 200" id="front-rainbow" preserveAspectRatio="none">
+      <defs>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="25%" id="front-rainbow-gradient">
+          <stop stop-color="white" offset="0%"></stop>
+          <stop stop-color="rgb(255,168,0)" offset="50%"></stop>
+          <stop stop-color="rgb(0,164,167)" offset="100%"></stop>
+        </linearGradient>
+      </defs>
+      <rect id="rect4142" width="1031" height="200" x="0" y="0" fill="url(#front-rainbow-gradient)" s fill-opacity="0.65"></rect>
+    </svg>
+
+    <svg viewBox="0 0 1226 340" id="back-rainbow-shadow" preserveAspectRatio="none">
+      <defs>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="15%" id="back-rainbow-gradient">
+          <stop stop-color="rgb(115,152,51)" offset="12%"></stop>
+          <stop stop-color="rgb(94,137,193)" offset="40%"></stop>
+          <stop stop-color="rgb(213,78,18)" offset="90%"></stop>
+        </linearGradient>
+      </defs>
+      <rect id="rect4142" width="1226" height="340" x="0" y="0" fill="gray"></rect>
+      
+    </svg>
+
+    <svg viewBox="0 0 1226 340" id="back-rainbow" preserveAspectRatio="none">
+      <defs>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="15%" id="back-rainbow-gradient">
+          <stop stop-color="rgb(198,200,0)" offset="12%"></stop>
+          <stop stop-color="rgb(52,173,218)" offset="40%"></stop>
+          <stop stop-color="rgb(255,168,0)" offset="90%"></stop>
+        </linearGradient>
+      </defs>
+      <rect id="rect4142" width="1226" height="340" x="0" y="0" fill="url(#back-rainbow-gradient)" ></rect>
+      
+    </svg>
+
+    
+
+    <svg viewBox="0 0 1280 110" preserveAspectRatio="none" id="header-curve-shadow">
+      <path d="M1280 3.9V110H0C194 71.33 662-19.9 1280 3.9z"></path>
+    </svg>
+
+    <svg viewBox="0 0 1280 110" preserveAspectRatio="none" id="header-curve">
+      <path d="M1280 3.9V110H0C194 71.33 662-19.9 1280 3.9z" fill="#fff"></path>
+    </svg>
+
+
+    <h1>
+      <strong>Check List.</strong>
+      Create new checklists or edit existing ones.
+    </h1>
+
+    <section class="call-to-action">
+      <div class="create-new-action">
+        <span class="shadow"></span>
+        {{#link-to 'new' class="btn create-new"}}Create New{{/link-to}}
+      </div>
+      <div class="edit-one-action">
+        <span class="shadow"></span>
+        {{#link-to 'edit' class="btn edit-one"}}Edit One{{/link-to}}
+      </div>
+    </section>
+  </header>
+{{/index-wrapper}}

@@ -1,0 +1,13 @@
+{{#file-picker fileLoaded="fileLoaded" readAs="readAsText" preview=false}}
+    Drag here or click to open a checklist file
+{{/file-picker}}
+
+{{#if isChecklistLoaded}}
+<div class="template-info chip right">
+    Template: {{checklist.template.name}} Version: {{checklist.template.version}}
+  </div>
+
+{{#edit-checklist template=checklist.template checklist=checklist.items}}
+    {{download-button text="Save Check List" content=checklistToSave fileName=(concat checklist.template.name "_content.json")}}
+{{/edit-checklist}}
+{{/if}}

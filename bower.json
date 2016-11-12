@@ -1,0 +1,10 @@
+{
+  "name": "checklist-app",
+  "dependencies": {
+    "ember": "~2.8.0",
+    "ember-cli-shims": "0.1.1",
+    "blob": "*",
+    "materialize": "0.97.6",
+    "file-saver.js": "1.20150507.2"
+  }
+}

@@ -1,0 +1,125 @@
+<form>
+{{#each template.checkItems as |item|}}
+    {{#with (find-by 'id' item.id checklist) as |valueItem|}}
+    {{#if (eq item.type "text")}}
+        <div class="row checklist-item item-type-text">
+            
+                {{md-input value=valueItem.value label=item.label type="text" class="col s9" validate=false}}
+                {{#unless valueItem.review}}{{md-btn text="Review" action=(action 'addReview' valueItem) class="deep-orange darken-2 white-text right"}}{{/unless}}
+            
+        </div>
+        {{#if valueItem.review}}
+            <div class="row check-item-review">
+            
+                    {{md-input value=valueItem.review.remark label="Remark" type="text" class="col s9" validate=false}}
+                    {{md-input value=valueItem.review.score label="Score" type="number" class="col s3" validate=false}}
+                
+            </div>
+        {{/if}}
+    {{/if}}
+    {{#if (eq item.type "number")}}
+        <div class="row checklist-item item-type-number">
+            {{md-input value=valueItem.value label=item.label type="number" class="col s9" validate=false}}
+            {{#unless valueItem.review}}{{md-btn text="Review" action=(action 'addReview' valueItem) class="deep-orange darken-2 white-text right"}}{{/unless}}
+        </div>
+        {{#if valueItem.review}}
+            <div class="row check-item-review">
+            
+                    {{md-input value=valueItem.review.remark label="Remark" type="text" class="col s9" validate=false}}
+                    {{md-input value=valueItem.review.score label="Score" type="number" class="col s3" validate=false}}
+                
+            </div>
+        {{/if}}
+    {{/if}}
+    {{#if (eq item.type "choose")}}
+        <div class="row checklist-item item-type-choose">
+        {{md-select content=item.options
+            label=item.label
+            prompt="Please choose..."
+            optionLabelPath="content.label"
+            optionValuePath="content.id" 
+            value=valueItem.value class="col s9"}}
+        {{#unless valueItem.review}}{{md-btn text="Review" action=(action 'addReview' valueItem) class="deep-orange darken-2 white-text right"}}{{/unless}}
+        </div>
+        {{#if valueItem.review}}
+            <div class="row check-item-review">
+            
+                    {{md-input value=valueItem.review.remark label="Remark" type="text" class="col s9" validate=false}}
+                    {{md-input value=valueItem.review.score label="Score" type="number" class="col s3" validate=false}}
+                
+            </div>
+        {{/if}}      
+    {{/if}}
+    {{#if (eq item.type "textarea")}}
+        <div class="row checklist-item">
+            {{md-textarea label=item.label
+                value=valueItem.value class="col s9"}}
+
+            {{#unless valueItem.review}}{{md-btn text="Review" action=(action 'addReview' valueItem) class="deep-orange darken-2 white-text right"}}{{/unless}}
+        </div>
+        {{#if valueItem.review}}
+            <div class="row check-item-review">
+            
+                    {{md-input value=valueItem.review.remark label="Remark" type="text" class="col s9" validate=false}}
+                    {{md-input value=valueItem.review.score label="Score" type="number" class="col s3" validate=false}}
+                
+            </div>
+        {{/if}}
+    {{/if}}
+    {{/with}}
+    {{#if (eq item.type "rating-group")}}
+        <div class="checklist-item item-type-rating-group row">
+            <div class="col s4">
+                <h5>{{item.label}}</h5>
+            </div>
+            <div class="col s8">
+                
+                {{#each item.ratings as |rating|}}
+                    {{#with (find-by 'id' rating.id checklist) as |valueItem|}}
+                        <div class="row checklist-item">    
+                        {{md-range value=valueItem.value min=item.range.start max=item.range.end name=rating.label class="col s8"}}
+                        {{#unless valueItem.review}}{{md-btn text="Review" action=(action 'addReview' valueItem) class="deep-orange darken-2 white-text right"}}{{/unless}}
+                        </div>
+                        {{#if valueItem.review}}
+                            <div class="row check-item-review">
+                            
+                                    {{md-input value=valueItem.review.remark label="Remark" type="text" class="col s9" validate=false}}
+                                    {{md-input value=valueItem.review.score label="Score" type="number" class="col s3" validate=false}}
+                                
+                            </div>
+                        {{/if}}
+                    {{/with}}
+                {{/each}}
+            </div>
+        </div>
+    {{/if}}
+    {{#if (eq item.type "check-group")}}
+        <div class="checklist-item item-type-rating-group row">
+            <div class="col s4">
+                <h5>{{item.label}}</h5>
+            </div>
+            <div class="col s8">
+
+                {{#each item.checks as |check|}}
+                    {{#with (find-by 'id' check.id checklist) as |valueItem|}}
+                        <div class="row checklist-item"> 
+                        {{md-check name=check.label checked=(if (eq valueItem.value 'true') 'checked' '') class="col s8"}}   
+                        {{#unless valueItem.review}}{{md-btn text="Review" action=(action 'addReview' valueItem) class="deep-orange darken-2 white-text right"}}{{/unless}}
+                        </div>
+                        {{#if valueItem.review}}
+                            <div class="row check-item-review">
+                            
+                                    {{md-input value=valueItem.review.remark label="Remark" type="text" class="col s9" validate=false}}
+                                    {{md-input value=valueItem.review.score label="Score" type="number" class="col s3" validate=false}}
+                                
+                            </div>
+                        {{/if}} 
+                    {{/with}}                    
+                {{/each}}
+
+            </div>
+        </div>
+    {{/if}}
+{{/each}}
+</form>
+{{yield}}
